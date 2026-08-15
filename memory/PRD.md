@@ -23,8 +23,9 @@ Build the best possible showcase website for The Flying Loaf Bakery (300-332 Gra
 - Dark inversion reviews section: giant 4.6 wordmark + 6 real Uber Eats reviews
 - Visit section: Google Maps embed, address, hours (7 days, 8AM–5PM), Uber Eats link
 - Massive-type footer wordmark
+- Mobile slide-out hamburger menu (dark full-screen panel, staggered links, closes on navigate)
+- "From the Counter" photo gallery: slow drifting marquee of 6 AI-generated food photos (bánh mì, vanilla slice, donuts, pie, iced coffee, bread rolls), pause on hover
 
 ## Backlog
-- P1: Mobile hamburger menu (nav links hidden on mobile currently, CTA still visible)
-- P2: Gallery section, catering enquiry form, SEO meta/OG tags, real bakery photography swap
+- P2: Catering enquiry form, SEO meta/OG tags, real bakery photography swap, hidden sales-pitch page
 - P2: Ordering flow (explicitly declined by user)

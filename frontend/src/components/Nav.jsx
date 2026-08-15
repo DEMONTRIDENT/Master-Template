@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { label: "Menu", href: "#menu" },
@@ -10,13 +11,58 @@ const links = [
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [open, setOpen] = useState(false);
   useEffect(() => {
     const fn = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", fn, { passive: true });
     return () => window.removeEventListener("scroll", fn);
   }, []);
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
+  }, [open]);
 
   return (
+    <>
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          initial={{ x: "100%" }}
+          animate={{ x: 0 }}
+          exit={{ x: "100%" }}
+          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          data-testid="mobile-menu-panel"
+          className="fixed inset-0 z-[60] bg-[#1A1A1A] text-[#F4F1EB] flex flex-col px-8 pt-6 pb-10 md:hidden"
+        >
+          <div className="flex items-center justify-between">
+            <span className="font-serif text-lg font-bold tracking-tight">The Flying Loaf<span className="text-[#A84A22]">.</span></span>
+            <button data-testid="mobile-menu-close" onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-[#F4F1EB] hover:text-[#A84A22] transition-colors duration-300">
+              <X size={26} />
+            </button>
+          </div>
+          <nav className="flex flex-col gap-2 mt-14 flex-grow">
+            {links.map((l, i) => (
+              <motion.a
+                key={l.href}
+                href={l.href}
+                onClick={() => setOpen(false)}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.15 + i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                data-testid={`mobile-nav-link-${l.label.toLowerCase().replace(/\s/g, "-")}`}
+                className="font-serif text-4xl py-3 border-b border-[#F4F1EB]/10 hover:text-[#A84A22] transition-colors duration-300"
+              >
+                {l.label}
+              </motion.a>
+            ))}
+          </nav>
+          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#F4F1EB]/40">
+            Shop 15, 300–332 Grand Blvd, Craigieburn<br />Open 7 days · 8AM – 5PM
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+    
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
@@ -42,14 +88,25 @@ export const Nav = () => {
             </a>
           ))}
         </nav>
-        <a
-          href="#visit"
-          data-testid="nav-cta"
-          className="font-mono text-[11px] uppercase tracking-[0.2em] bg-[#1A1A1A] text-[#F4F1EB] px-5 py-2.5 rounded-full hover:bg-[#A84A22] transition-colors duration-300"
-        >
-          Visit Us
-        </a>
+        <div className="flex items-center gap-3">
+          <a
+            href="#visit"
+            data-testid="nav-cta"
+            className="hidden md:inline-block font-mono text-[11px] uppercase tracking-[0.2em] bg-[#1A1A1A] text-[#F4F1EB] px-5 py-2.5 rounded-full hover:bg-[#A84A22] transition-colors duration-300"
+          >
+            Visit Us
+          </a>
+          <button
+            data-testid="mobile-menu-toggle"
+            onClick={() => setOpen(true)}
+            aria-label="Open menu"
+            className="md:hidden p-2 text-[#1A1A1A] hover:text-[#A84A22] transition-colors duration-300"
+          >
+            <Menu size={24} />
+          </button>
+        </div>
       </div>
     </motion.header>
+    </>
   );
 };

@@ -4,6 +4,7 @@ import { Nav } from "./components/Nav";
 import { Hero } from "./components/Hero";
 import { Ribbon } from "./components/Ribbon";
 import { Manifesto } from "./components/Manifesto";
+import { Gallery } from "./components/Gallery";
 import { MenuSection } from "./components/MenuSection";
 import { Reviews } from "./components/Reviews";
 import { Visit } from "./components/Visit";
@@ -21,6 +22,7 @@ function App() {
             <Ribbon />
           </div>
           <Manifesto />
+          <Gallery />
           <MenuSection />
           <Reviews />
           <Visit />
