@@ -1,0 +1,111 @@
+{
+  "project_name": "The Flying Loaf Bakery",
+  "app_type": "marketing_site",
+  "theme": "light",
+  "design_vibe": "Bold cohesive art direction pushed to the edge, highly editorial, organic yet structural, Awwwards Site-of-the-Day ambition. Premium, purposeful motion. No AI-slop.",
+  "typography": {
+    "headings": {
+      "font": "Playfair Display",
+      "weights": ["400", "700", "900"],
+      "usage": "Hero headers, section titles, manifesto chapters. Use tracking-tight or tracking-tighter. For .js/.jsx usage."
+    },
+    "body": {
+      "font": "Manrope",
+      "weights": ["400", "500"],
+      "usage": "Descriptions, paragraphs, general text. leading-relaxed. Use .js/.jsx conventions."
+    },
+    "mono": {
+      "font": "JetBrains Mono",
+      "weights": ["400"],
+      "usage": "Overlines, labels, prices, stats (4.6 rating), small technical details. Use uppercase and tracking-[0.2em]."
+    }
+  },
+  "colors": {
+    "background": {
+      "primary": "#F4F1EB",
+      "description": "Warm, flour-like off-white. The dominant canvas."
+    },
+    "foreground": {
+      "primary": "#1A1A1A",
+      "description": "Deep espresso/soft black for primary text. Never use pure black."
+    },
+    "accent": {
+      "primary": "#A84A22",
+      "description": "Terracotta / Crust brown. Use for buttons, active states, key highlights."
+    },
+    "surface": {
+      "dark": "#1A1A1A",
+      "darkText": "#F4F1EB"
+    },
+    "border": {
+      "subtle": "rgba(26, 26, 26, 0.1)"
+    }
+  },
+  "visual_enhancers": {
+    "motion": [
+      "Lenis smooth scrolling (@studio-freight/react-lenis) is MANDATORY for premium weight and momentum.",
+      "Framer Motion (framer-motion) for all scroll reveals. useScroll and useTransform for parallax on hero images.",
+      "Masked line-by-line reveal for Hero Text: Text lines hidden initially via overflow-hidden, sliding up into view with a stagger."
+    ],
+    "textures": [
+      "Subtle noise overlay (SVG filter or CSS background) fixed over the entire site with pointer-events-none to remove digital flatness."
+    ],
+    "shadows": [
+      "Avoid soft default Tailwind shadows. Use crisp 1px borders or deep, deliberate organic shadows."
+    ]
+  },
+  "layouts": {
+    "header": "Sticky navigation, crystal glassmorphism (backdrop-blur-xl bg-[#F4F1EB]/80). CRITICAL: Do not use fully transparent. Logo on left, menu on right.",
+    "hero": "Massive kinetic typography taking up 70% of the viewport. Signature masked reveal. A clipped rectangular image that has a slow internal scale parallax on scroll.",
+    "marquee": "The 'Editorial Ribbon'. Slow drift using react-fast-marquee. Pale background, Serif font, massive gaps (gap-24). Text: 'FRESHLY BAKED DAILY ✦ VIETNAMESE INSPIRED ✦ CRAIGIEBURN'S FINEST ✦ '",
+    "manifesto": "Numbered chapters (01. The Crust, 02. The Craft). 2-column layout. Left column (number + title) is sticky, right column (imagery + text) scrolls.",
+    "menu": "Stark editorial list for Banh Mi/Rolls, Bakery/Pastry, Desserts, Drinks. Left-aligned item name (Playfair) and description (Manrope), dotted flex-grow spacer, right-aligned price (JetBrains Mono).",
+    "reviews": "Color inversion section. Background dark (#1A1A1A), text light (#F4F1EB). Huge typography quote, big stars (4.6/5.0).",
+    "location": "Brutalist grid. Left: Location image/map. Right: Address (300-332 Grand Blvd, Shop 15, Craigieburn, Victoria 3064) and hours in large legible mono/sans typography.",
+    "footer": "Massive typography taking up 100% width 'THE FLYING LOAF'. Contact info below."
+  },
+  "component_instructions": [
+    "Use pure HTML + Tailwind for marketing structure. Do NOT use Shadcn cards or generic wrappers.",
+    "Do not center-align paragraphs. Use optical alignment.",
+    "Write components in .jsx or .js as per the tech stack.",
+    "CRITICAL: DO NOT use complete transparent background in header, overlays, or any surface that has content under it."
+  ],
+  "accessibility": {
+    "test_ids": "All interactive and key informational elements MUST include a data-testid attribute (e.g., data-testid='menu-category-banh-mi').",
+    "contrast": "Ensure text over images has sufficient contrast or uses gradient overlays."
+  },
+  "image_urls": {
+    "hero_artisan": {
+      "url": "https://images.unsplash.com/photo-1587241321921-91a834d6d191?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwxfHxhcnRpc2FuJTIwYmFrZXJ5JTIwYmFraW5nfGVufDB8fHx8MTc4Njc2Nzc4M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Architectural bakery interior / Baker. Use for the subtle parallax hero moment."
+    },
+    "banh_mi": {
+      "url": "https://images.unsplash.com/photo-1700937244987-92488ab2ada5?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2NDN8MHwxfHNlYXJjaHwxfHxiYW5oJTIwbWklMjBzYW5kd2ljaHxlbnwwfHx8fDE3ODY3Njc3ODN8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Premium close-up of a Banh Mi sandwich. Use in the Menu or Manifesto."
+    },
+    "pastries": {
+      "url": "https://images.unsplash.com/photo-1483695028939-5bb13f8648b0?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njd8MHwxfHNlYXJjaHwzfHxhcnRpc2FuJTIwYmFrZXJ5JTIwYmFraW5nfGVufDB8fHx8MTc4Njc2Nzc4M3ww&ixlib=rb-4.1.0&q=85",
+      "description": "Baked treats on tray, warm and artisanal. Use in the Manifesto or Menu."
+    },
+    "drinks_coffee": {
+      "url": "https://images.unsplash.com/photo-1641659736749-8bbae305e475?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHx2aWV0bmFtZXNlJTIwaWNlZCUyMGNvZmZlZXxlbnwwfHx8fDE3ODY3Njc3ODN8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Elegant Vietnamese iced coffee. Use in Drinks section."
+    }
+  },
+  "universal_guidelines_for_main_agent": [
+    "You tend to converge toward generic, 'on distribution' outputs. Avoid the 'AI slop' aesthetic. Make creative, distinctive frontends that surprise and delight.",
+    "Dark colors look good when used independently without gradients. DO NOT use dark colors as gradients.",
+    "Don't make generic centered layouts, simplistic gradients, and uniform styling.",
+    "Create depth through layered design elements with z-index hierarchy.",
+    "Use glass-morphism effects with backdrop filters (12-24px blur).",
+    "You MUST NOT apply universal transition. Eg: transition: all. This results in breaking transforms. Always add transitions for specific interactive elements.",
+    "You MUST NOT center align the app container, ie do not add .App { text-align: center; } in the css file.",
+    "Always use modern button styles with interaction animations.",
+    "NEVER use AI assistant Emoji characters like 🤖🧠💭💡🔮🎯 for icons.",
+    "Every interaction needs micro-animations - hover states, transitions, parallax effects. Static = dead.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Subtle grain textures, noise overlays, custom cursors, and loading animations separate good from extraordinary.",
+    "NEVER use placeholder URLs or text for images.",
+    "All interactive and key informational elements MUST include a data-testid attribute to facilitate robust automated testing."
+  ]
+}
