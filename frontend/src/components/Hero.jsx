@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { IMAGES } from "../data/menu";
+import { BUSINESS } from "../config/business";
 
 const line = {
   hidden: { y: "110%" },
@@ -30,16 +31,16 @@ export const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.1, duration: 0.8 }}
-        className="font-mono text-[11px] md:text-xs uppercase tracking-[0.3em] text-[#A84A22] mb-6 md:mb-10"
+        className="font-mono text-[11px] md:text-xs uppercase tracking-[0.3em] text-brand mb-6 md:mb-10"
         data-testid="hero-overline"
       >
-        Craigieburn, Melbourne — Est. Bakery &amp; Bánh Mì House
+        {BUSINESS.hero.overline}
       </motion.p>
 
-      <h1 data-testid="hero-heading" className="font-serif font-black text-[#1A1A1A] leading-[0.95] tracking-tight text-[13.5vw] md:text-[9.5vw]">
-        <MaskedLine i={0}>THE FLYING</MaskedLine>
+      <h1 data-testid="hero-heading" className="font-serif font-black text-ink leading-[0.95] tracking-tight text-[13.5vw] md:text-[9.5vw]">
+        <MaskedLine i={0}>{BUSINESS.hero.titleLine1}</MaskedLine>
         <MaskedLine i={1}>
-          LOAF <span className="italic font-normal text-[#A84A22]">bakery</span>
+          {BUSINESS.hero.titleLine2} <span className="italic font-normal text-brand">{BUSINESS.hero.titleItalic}</span>
         </MaskedLine>
       </h1>
 
@@ -50,19 +51,19 @@ export const Hero = () => {
           transition={{ delay: 0.9, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
           className="md:col-span-4 order-2 md:order-1"
         >
-          <p className="text-[#1A1A1A]/70 text-sm md:text-base leading-relaxed max-w-sm" data-testid="hero-description">
-            Crackle-skin pork bánh mì, crisp rolls baked every morning, and Vietnamese iced coffee worth crossing town for. This is Craigieburn's midday ritual.
+          <p className="text-ink/70 text-sm md:text-base leading-relaxed max-w-sm" data-testid="hero-description">
+            {BUSINESS.hero.description}
           </p>
           <div className="mt-8 flex items-center gap-6">
             <a
               href="#menu"
               data-testid="hero-menu-btn"
-              className="font-mono text-[11px] uppercase tracking-[0.2em] bg-[#A84A22] text-[#F4F1EB] px-7 py-3.5 rounded-full hover:bg-[#1A1A1A] transition-colors duration-300"
+              className="font-mono text-[11px] uppercase tracking-[0.2em] bg-brand text-cream px-7 py-3.5 rounded-full hover:bg-ink transition-colors duration-300"
             >
-              See the Menu
+              {BUSINESS.hero.ctaLabel}
             </a>
-            <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-[#1A1A1A]" data-testid="hero-rating">
-              <span className="text-[#A84A22]">★</span> 4.6 · 1,000+ ratings
+            <div className="font-mono text-[11px] uppercase tracking-[0.15em] text-ink" data-testid="hero-rating">
+              <span className="text-brand">★</span> {BUSINESS.rating.score} · {BUSINESS.rating.count}
             </div>
           </div>
         </motion.div>
@@ -75,13 +76,13 @@ export const Hero = () => {
           data-testid="hero-image-frame"
         >
           <motion.img
-            src={IMAGES.hero}
-            alt="Inside The Flying Loaf Bakery"
+            src={BUSINESS.hero.image}
+            alt={BUSINESS.name}
             style={{ y: imgY, scale: imgScale }}
             className="w-full h-full object-cover will-change-transform"
           />
-          <div className="absolute bottom-4 left-4 bg-[#F4F1EB]/90 backdrop-blur-md px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-[#1A1A1A]">
-            Baked fresh · Open 7 days
+          <div className="absolute bottom-4 left-4 bg-cream/90 backdrop-blur-md px-4 py-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ink">
+            {BUSINESS.hero.imageBadge}
           </div>
         </motion.div>
       </div>

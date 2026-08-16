@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { BUSINESS } from "../config/business";
 
 const links = [
   { label: "Menu", href: "#menu" },
@@ -32,11 +33,11 @@ export const Nav = () => {
           exit={{ x: "100%" }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           data-testid="mobile-menu-panel"
-          className="fixed inset-0 z-[60] bg-[#1A1A1A] text-[#F4F1EB] flex flex-col px-8 pt-6 pb-10 md:hidden"
+          className="fixed inset-0 z-[60] bg-ink text-cream flex flex-col px-8 pt-6 pb-10 md:hidden"
         >
           <div className="flex items-center justify-between">
-            <span className="font-serif text-lg font-bold tracking-tight">The Flying Loaf<span className="text-[#A84A22]">.</span></span>
-            <button data-testid="mobile-menu-close" onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-[#F4F1EB] hover:text-[#A84A22] transition-colors duration-300">
+            <span className="font-serif text-lg font-bold tracking-tight">{BUSINESS.name}<span className="text-brand">.</span></span>
+            <button data-testid="mobile-menu-close" onClick={() => setOpen(false)} aria-label="Close menu" className="p-2 text-cream hover:text-brand transition-colors duration-300">
               <X size={26} />
             </button>
           </div>
@@ -50,14 +51,14 @@ export const Nav = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + i * 0.07, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
                 data-testid={`mobile-nav-link-${l.label.toLowerCase().replace(/\s/g, "-")}`}
-                className="font-serif text-4xl py-3 border-b border-[#F4F1EB]/10 hover:text-[#A84A22] transition-colors duration-300"
+                className="font-serif text-4xl py-3 border-b border-cream/10 hover:text-brand transition-colors duration-300"
               >
                 {l.label}
               </motion.a>
             ))}
           </nav>
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-[#F4F1EB]/40">
-            Shop 15, 300–332 Grand Blvd, Craigieburn<br />Open 7 days · 8AM – 5PM
+          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-cream/40">
+            {BUSINESS.visit.addressShort}<br />{BUSINESS.visit.hoursShort}
           </div>
         </motion.div>
       )}
@@ -69,12 +70,12 @@ export const Nav = () => {
       transition={{ duration: 0.8, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
       data-testid="main-nav"
       className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-xl transition-colors duration-500 ${
-        scrolled ? "bg-[#F4F1EB]/85 border-b border-[#1A1A1A]/10" : "bg-[#F4F1EB]/50"
+        scrolled ? "bg-cream/85 border-b border-ink/10" : "bg-cream/50"
       }`}
     >
       <div className="max-w-[1600px] mx-auto flex items-center justify-between px-6 md:px-12 h-16 md:h-20">
-        <a href="#top" data-testid="nav-logo" className="font-serif text-lg md:text-xl font-bold tracking-tight text-[#1A1A1A]">
-          The Flying Loaf<span className="text-[#A84A22]">.</span>
+        <a href="#top" data-testid="nav-logo" className="font-serif text-lg md:text-xl font-bold tracking-tight text-ink">
+          {BUSINESS.name}<span className="text-brand">.</span>
         </a>
         <nav className="hidden md:flex items-center gap-10">
           {links.map((l) => (
@@ -82,7 +83,7 @@ export const Nav = () => {
               key={l.href}
               href={l.href}
               data-testid={`nav-link-${l.label.toLowerCase().replace(/\s/g, "-")}`}
-              className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#1A1A1A]/70 hover:text-[#A84A22] transition-colors duration-300"
+              className="font-mono text-[11px] uppercase tracking-[0.2em] text-ink/70 hover:text-brand transition-colors duration-300"
             >
               {l.label}
             </a>
@@ -92,7 +93,7 @@ export const Nav = () => {
           <a
             href="#visit"
             data-testid="nav-cta"
-            className="hidden md:inline-block font-mono text-[11px] uppercase tracking-[0.2em] bg-[#1A1A1A] text-[#F4F1EB] px-5 py-2.5 rounded-full hover:bg-[#A84A22] transition-colors duration-300"
+            className="hidden md:inline-block font-mono text-[11px] uppercase tracking-[0.2em] bg-ink text-cream px-5 py-2.5 rounded-full hover:bg-brand transition-colors duration-300"
           >
             Visit Us
           </a>
@@ -100,7 +101,7 @@ export const Nav = () => {
             data-testid="mobile-menu-toggle"
             onClick={() => setOpen(true)}
             aria-label="Open menu"
-            className="md:hidden p-2 text-[#1A1A1A] hover:text-[#A84A22] transition-colors duration-300"
+            className="md:hidden p-2 text-ink hover:text-brand transition-colors duration-300"
           >
             <Menu size={24} />
           </button>

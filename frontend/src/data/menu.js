@@ -1,3 +1,5 @@
+// TEMPLATE: business content file — menu/service items, testimonials & core images.
+// Each category: { id, label, note?, items: [{ name, price, desc?, tag? }] }
 export const CATEGORIES = [
   {
     id: "banh-mi",

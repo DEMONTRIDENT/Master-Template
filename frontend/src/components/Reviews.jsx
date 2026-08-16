@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { REVIEWS } from "../data/menu";
+import { BUSINESS } from "../config/business";
 
 const reveal = {
   hidden: { opacity: 0, y: 40 },
@@ -7,22 +8,22 @@ const reveal = {
 };
 
 export const Reviews = () => (
-  <section id="reviews" data-testid="reviews-section" className="bg-[#1A1A1A] text-[#F4F1EB] py-24 md:py-40">
+  <section id="reviews" data-testid="reviews-section" className="bg-ink text-cream py-24 md:py-40">
     <div className="max-w-[1600px] mx-auto px-6 md:px-12">
       <motion.div variants={reveal} custom={0} initial="hidden" whileInView="show" viewport={{ once: true, margin: "-80px" }}>
-        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-[#A84A22] mb-6">What Craigieburn Says</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-brand mb-6">{BUSINESS.reviews.overline}</p>
         <div className="flex flex-col md:flex-row md:items-end gap-6 md:gap-16 mb-16 md:mb-24">
           <div data-testid="reviews-rating" className="font-serif font-black text-[26vw] md:text-[13vw] leading-[0.8] tracking-tighter">
-            4.6
+            {BUSINESS.rating.score}
           </div>
           <div className="pb-2 md:pb-6">
-            <div className="text-[#A84A22] text-2xl md:text-3xl tracking-[0.2em]">★★★★★</div>
-            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-[#F4F1EB]/50 mt-3">From 1,000+ verified ratings on Uber Eats</p>
+            <div className="text-brand text-2xl md:text-3xl tracking-[0.2em]">★★★★★</div>
+            <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-cream/50 mt-3">{BUSINESS.reviews.sourceLine}</p>
           </div>
         </div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#F4F1EB]/10">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-cream/10">
         {REVIEWS.map((r, i) => (
           <motion.blockquote
             key={r.name}
@@ -32,11 +33,11 @@ export const Reviews = () => (
             whileInView="show"
             viewport={{ once: true, margin: "-60px" }}
             data-testid={`review-card-${i}`}
-            className="bg-[#1A1A1A] p-8 md:p-10"
+            className="bg-ink p-8 md:p-10"
           >
             <p className="font-serif text-lg md:text-xl leading-snug">"{r.quote}"</p>
-            <footer className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-[#F4F1EB]/40">
-              — {r.name} <span className="text-[#A84A22] ml-2">★★★★★</span>
+            <footer className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-cream/40">
+              — {r.name} <span className="text-brand ml-2">★★★★★</span>
             </footer>
           </motion.blockquote>
         ))}

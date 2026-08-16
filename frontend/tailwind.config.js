@@ -13,6 +13,10 @@ module.exports = {
         sm: 'calc(var(--radius) - 4px)'
       },
       colors: {
+        // TEMPLATE: brand palette — change these 3 values to re-skin the whole site
+        cream: '#F4F1EB',
+        ink: '#1A1A1A',
+        brand: '#A84A22',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

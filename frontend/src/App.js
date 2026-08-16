@@ -13,7 +13,7 @@ import { Footer } from "./components/Footer";
 function App() {
   return (
     <ReactLenis root options={{ lerp: 0.08, smoothWheel: true }}>
-      <div className="App bg-[#F4F1EB] min-h-screen">
+      <div className="App bg-cream min-h-screen">
         <div className="noise-overlay" aria-hidden="true" />
         <Nav />
         <main>
